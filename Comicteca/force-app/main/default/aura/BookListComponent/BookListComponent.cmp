@@ -1,0 +1,68 @@
+<aura:component implements="force:appHostable" controller="BookListController">
+  <aura:attribute name="list" type="List"></aura:attribute>
+  <aura:handler name="init" value="{!this}" action="{!c.showBookList}"></aura:handler>
+  <div style="height: 100%; width:100% ;background-image: url('https://wallpaperaccess.com/full/684548.png');
+  background-repeat: no-repeat;">
+  <p style=" text-align:center; font-weight: bold; font-size: 32px; background-color:black; color:white">
+    Comicteca
+  </p>
+  <br/>
+  <table style=" margin-left: auto; margin-right: auto; background:rgb(46, 46, 46)">
+      <tr>
+          <td><b>  Título  </b></td>
+          <td><b>  NºPáginas  </b></td>
+          <td><b>  Año de publicación  </b></td>
+          <td><b>  Editorial  </b></td>
+          <td></td>
+        </tr>
+        <aura:iteration items="{!v.list}" var="book" indexVar="Index">
+            <tr>
+                <td>{!book.Name}</td>
+                <td>{!book.Numero_de_paginas__c}</td>
+                <td>{!book.Ano_de_publicacion__c}</td>
+                <td>{!book.Editorial__c}</td>
+                <td><button id="{!book.Id}" type="button" onclick="{!c.removeBook}" >Eliminar</button></td>
+            </tr>
+        </aura:iteration>
+    </table>
+    <br />
+    <br />
+<!-- <aura:handler name="init"value="{!this}"action="{!c.addComic}"></aura:handler> -->
+  <p style=" text-align:center; font-weight: bold; font-size: 32px; background-color:black; color:white">
+    Insertar un nuevo cómic
+  </p>
+  <br />
+  <div style="margin-left:46%">
+    <lightning:input 
+      aura:id="nom"
+      name="nom"
+      label="Nombre"
+      required="true"
+    /><br />
+    <lightning:select aura:id="editorial" name="editorial" label="editorial" required="true">
+        <option value="">Seleccione una editorial...</option>
+        <option value="Norma Editorial">Norma Editorial</option>
+        <option value="Panini Comics">Panini Comics</option>
+        <option value="Dolmen Editorial">Dolmen Editorial</option>
+        <option value="Planeta Comic">Planeta Comic</option>
+        <option value="Ecc">Ecc</option>
+
+      </lightning:select>
+    <br /><br />
+    <lightning:input
+      aura:id="num_pag"
+      name="num_pag"
+      label="num_pag"
+      required="flase"
+    /><br />
+    <lightning:input
+      aura:id="ano"
+      name="ano"
+      label="ano"
+      required="false"
+    /><br />
+    <ui:button label="Añadir" press="{!c.addComic}" />
+  </div>
+  <br />
+</div>
+</aura:component>

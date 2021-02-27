@@ -1,0 +1,14 @@
+.THIS {
+}
+
+.THIS tr {
+    border: 1px solid white;  
+    color: white;
+}
+
+.THIS td { 
+    border: 1px solid white;
+    margin-left: 3px;
+    color: white;
+}
+
