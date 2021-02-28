@@ -68,5 +68,20 @@
         });
     $A.enqueueAction(action);
     $A.enqueueAction(action2);
+}, 
+
+    removeEditorial : function(component, event, helper) {
+        var idx = event.target.id;
+        var action = component.get("c.getEditorialToRemove");
+        action.setParams({
+            idEditorial: idx
+        });
+
+    var action2 = component.get("c.getEditorialesList");
+        action2.setCallback(this, function(response){
+            component.set("v.editorialList", response.getReturnValue());
+        });
+    $A.enqueueAction(action);
+    $A.enqueueAction(action2);
 }
 })

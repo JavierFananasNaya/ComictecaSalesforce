@@ -3,7 +3,7 @@
   <aura:attribute name="editorialList" type="List"></aura:attribute>
   <aura:handler name="init" value="{!this}" action="{!c.showBookList}"></aura:handler>
   <aura:handler name="init" value="{!this}" action="{!c.showEditorialList}"></aura:handler>
-  <div style="height: 100%; width:100% ;background-image: url('https://wallpaperaccess.com/full/684548.png');
+  <div style="height: 100%; background-image: url('https://wallpaperaccess.com/full/684548.png');
   background-repeat: no-repeat;">
   <p style=" text-align:center; font-weight: bold; font-size: 32px; background-color:black; color:white">
     Comicteca
@@ -37,7 +37,7 @@
   </p>
   <br />
   <div style="margin-left:46%">
-    <lightning:input 
+    <lightning:input
       aura:id="nom"
       name="nom"
       label="Nombre"
@@ -53,13 +53,13 @@
     <lightning:input
       aura:id="num_pag"
       name="num_pag"
-      label="num_pag"
+      label="Número de páginas"
       required="flase"
     /><br />
     <lightning:input
       aura:id="ano"
       name="ano"
-      label="ano"
+      label="Año"
       required="false"
     /><br />
     <ui:button label="Añadir" press="{!c.addComic}" />
@@ -79,6 +79,23 @@
     <br />
     <ui:button label="Añadir" press="{!c.addEditorial}" />
   </div>
+  <br/>
+  <p style=" text-align:center; font-weight: bold; font-size: 32px; background-color:black; color:white">
+    Lista de editoriales
+  </p>
+  <br/>
+  <table style=" margin-left: auto; margin-right: auto; background:rgb(46, 46, 46)">
+    <tr>
+        <td><b>  Nombre Editorial  </b></td>
+        <td></td>
+      </tr>
+      <aura:iteration items="{!v.editorialList}" var="editorial" indexVar="Index">
+          <tr>
+              <td>{!editorial.Name}</td>
+              <td><button id="{!editorial.Id}" type="button" onclick="{!c.removeEditorial}" >Eliminar</button></td>
+          </tr>
+      </aura:iteration>
+  </table>
 
 </div>
 </aura:component>

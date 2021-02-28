@@ -53,4 +53,14 @@ public inherited sharing class BookListController {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    @AuraEnabled
+    public static void getEditorialToRemove(String idEditorial){
+        try {
+        Editorial__c editorial = [SELECT Id, Name FROM Editorial__c WHERE id = :idEditorial];
+            delete editorial;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }
