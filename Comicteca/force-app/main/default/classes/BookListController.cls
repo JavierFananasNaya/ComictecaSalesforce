@@ -8,6 +8,17 @@ public inherited sharing class BookListController {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    @AuraEnabled
+    public static List<Editorial__c> getEditorialesList(){
+        try {
+        List<Editorial__c> editoriales = [SELECT Id, Name FROM Editorial__c ORDER BY Name];
+             return editoriales;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
     @AuraEnabled
     public static void getData(String nom, Decimal num_pag, String editorial, Decimal ano){
         try {
@@ -17,6 +28,17 @@ public inherited sharing class BookListController {
              newLibro.Editorial__c = editorial;
              newLibro.Ano_de_publicacion__c = ano;
              insert newLibro;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
+    @AuraEnabled
+    public static void getEditorialData(String nom){
+        try {
+        Editorial__c newEditorial = new Editorial__c();
+             newEditorial.Name = nom;
+             insert newEditorial;
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }

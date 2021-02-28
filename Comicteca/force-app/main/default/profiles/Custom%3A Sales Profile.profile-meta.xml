@@ -4,10 +4,6 @@
         <apexClass>BookListController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>prueba</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
@@ -25,8 +21,15 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
+        <layout>Editorial__c-Formato Editorial</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Libro__c-Formato Libro</layout>
     </layoutAssignments>
+    <tabVisibilities>
+        <tab>Editorial__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Libro__c</tab>
         <visibility>DefaultOn</visibility>

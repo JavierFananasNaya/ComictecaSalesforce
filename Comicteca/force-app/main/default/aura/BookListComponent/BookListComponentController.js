@@ -7,6 +7,14 @@
             $A.enqueueAction(action);
     },
 
+    showEditorialList : function(component, event, helper) {
+        var action = component.get("c.getEditorialesList");
+        action.setCallback(this, function(response){
+            component.set("v.editorialList", response.getReturnValue());
+        });
+        $A.enqueueAction(action);
+},
+
     addComic : function(component, event, helper){
         var get_name = component.find("nom").get("v.value");
         var get_editorial = component.find("editorial").get("v.value");
@@ -25,6 +33,23 @@
             action2.setCallback(this, function(response){
                 component.set("v.list", response.getReturnValue());
             });
+        $A.enqueueAction(action);
+        $A.enqueueAction(action2);
+    
+    },
+
+    addEditorial : function(component, event, helper){
+        var get_name = component.find("editorialNom").get("v.value");
+        var action = component.get("c.getEditorialData");
+        
+        action.setParams({
+            nom:get_name,
+        });
+
+        var action2 = component.get("c.getEditorialesList");
+        action2.setCallback(this, function(response){
+            component.set("v.editorialList", response.getReturnValue());
+        });
         $A.enqueueAction(action);
         $A.enqueueAction(action2);
     
