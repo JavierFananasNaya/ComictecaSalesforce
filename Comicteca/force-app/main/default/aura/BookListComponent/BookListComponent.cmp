@@ -27,7 +27,6 @@
     </table>
     <br />
     <br />
-<!-- <aura:handler name="init"value="{!this}"action="{!c.addComic}"></aura:handler> -->
   <p style=" text-align:center; font-weight: bold; font-size: 32px; background-color:black; color:white">
     Insertar un nuevo cómic
   </p>
@@ -46,8 +45,7 @@
         <option value="Dolmen Editorial">Dolmen Editorial</option>
         <option value="Planeta Comic">Planeta Comic</option>
         <option value="Ecc">Ecc</option>
-
-      </lightning:select>
+    </lightning:select>
     <br /><br />
     <lightning:input
       aura:id="num_pag"
